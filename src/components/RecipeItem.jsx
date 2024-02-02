@@ -2,10 +2,10 @@
 
 import {Center, Image, Text, WrapItem} from '@chakra-ui/react';
 
-export const RecipeItem = ({ recipe, clickFn }) => {
+export const RecipeItem = ({ recipe, onClick }) => {
 	return (
 		<WrapItem>
-			<Center gap={8} cursor={'pointer'} onClick={() => clickFn(drink)}>
+			<Center gap={8} cursor={'pointer'} onClick={() => onClick(recipe)}>
 				<Image 
 					src={recipe.image} 
 					w={50} 
