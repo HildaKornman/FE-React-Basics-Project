@@ -2,8 +2,8 @@
 
 import {Button as CButton} from '@chakra-ui/react';
 
-export const Button = ({clickFn, ...props})=>(
-    <CButton colorScheme="teal" onClick={clickFn} {...props}>
+export const Button = ({onClick, ...props})=>(
+    <CButton colorScheme="teal" onClick={onClick} {...props}>
         {props.children}
     </CButton>
 );
