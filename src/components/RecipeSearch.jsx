@@ -5,7 +5,7 @@ import { availableRecipes } from '../utils/data';
 import { RecipeListPage } from './RecipeListPage';
 import { TextInput } from './ui/TextInput';
 
-export const RecipeSearch=({clickFn})=>{
+export const RecipeSearch=({onClick})=>{
   const [searchField, setSearchField] = useState('');
 
   const matchedRecipes = availableRecipes.filter((recipe) => {
@@ -18,9 +18,9 @@ export const RecipeSearch=({clickFn})=>{
 
   return (
     <>
-      <label>Which recipe do you search for? Type here:</label> <br/>
+      <label>Which recipe do you search for? Type here:</label>
       <TextInput onChange={handleChange} w={200} mb={8}/>
-      <RecipeListPage clickFn={clickFn} recipes={matchedRecipes} />
+      <RecipeListPage onClick={onClick} recipes={matchedRecipes} />
     </>
   );
 };
