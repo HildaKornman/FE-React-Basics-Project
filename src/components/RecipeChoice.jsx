@@ -17,12 +17,12 @@ import {
 } from '@chakra-ui/react';
 import {Button} from './ui/Button';
 
-export const RecipeChoice = ({recipe, clickFn})=>{
+export const RecipeChoice = ({recipe, onClick})=>{
 	const {isOpen, onOpen, onClose}=useDisclosure();
 
 	return (
 		<Center flexDir={'column'} gap={4}>
-			<Heading fontSize={'2xl'} color="grey.600">
+			<Heading fontSize={'2xl'} color="gray.600">
 				Your choice: {recipe.label}
 			</Heading>
 			<Image
@@ -37,23 +37,31 @@ export const RecipeChoice = ({recipe, clickFn})=>{
 				<Button onClick={onOpen} mr={4}>
 					Confirm order
 				</Button>
-				<Button onClick={() => clickFn()} variant="ghost">
+				<Button onClick={() => onClick()} variant="ghost">
 					Change selection
 				</Button>
 			</Flex>
-
-			<Modal isOpen={isOpen} onclose={onClose}>
-				<ModalOverlay/>
+			<Modal size={{'full', 'md']} isOpen={isOpen} onClose={onClose}>
+			<ModalOverlay/>
 				<ModalContent>
 					<ModalHeader>Confirm your order</ModalHeader>
 					<ModalCloseButton/>
-					<ModalBody>
+					<ModalBody
+						height={['full', 'fit-content']}
+						display="flex"
+						justifyContent="center"
+						alignItems={['center', 'flex-start']}
+						flexDir="column
+					>
 						<Text>1x {recipe.label}</Text>
 					</ModalBody>
 
 					<ModalFooter>
 						<Button colorScheme="teal" mr={4}>
 							Confirm
+						</Button>
+						<Button variant="ghost" onClick={onClose}>
+							Cancel
 						</Button>
 					</ModalFooter>
 				</ModalContent>
