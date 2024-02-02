@@ -13,13 +13,13 @@ export const App = () => {
   return (
     <Center h="100vh" flexDir="column" color="black.600" backgroundColor="blue.100">
       {userRecipe ? (
-        <RecipeChoice recipe={userRecipe} clickFn={setUserRecipe}/>
+        <RecipeChoice recipe={userRecipe} onClick={setUserRecipe}/>
       ):(
         <>
           <Heading size="2xl" mb={8} color="blue.900">
             {greeting}
           </Heading>
-          <RecipeSearch clickFn={setUserRecipe}/>
+          <RecipeSearch onClick={setUserRecipe}/>
         </>
       )}
     </Center>
